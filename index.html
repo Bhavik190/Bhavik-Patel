@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavik Patel & Associates | Expert Financial & Tax Advisory</title>
+    <meta name="description" content="Bhavik Patel & Associates offers expert services in Accounting, GST, Income Tax, Corporate Compliance, and Business Automation. Grow your business with our professional advisory.">
+    <meta name="author" content="Bhavik Patel & Associates">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>B</text></svg>">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-primary': '#4f46e5', // Indigo 600
+                        'brand-secondary': '#7c3aed', // Violet 600
+                        'brand-dark': '#1e1b4b',   // Indigo 950
+                        'brand-bg': '#f5f8ff',     // A very light, professional blue
+                    },
+                    backgroundImage: {
+                        'gradient-hero': 'linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%)',
+                        'gradient-cta': 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles for Effects -->
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e0e7ff; }
+        ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4f46e5; }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Wavy background */
+        .wavy-bg {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3e%3cpath fill='%23ffffff' fill-opacity='1' d='M0,160L48,176C96,192,192,224,288,218.7C384,213,480,171,576,149.3C672,128,768,128,864,154.7C960,181,1056,235,1152,240C1248,245,1344,203,1392,181.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3e%3c/path%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+        }
+
+        /* Animated gradient for CTA */
+        .animated-gradient {
+            background: linear-gradient(-45deg, #4f46e5, #7c3aed, #4338ca, #6d28d9);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 3D effect for service cards */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .service-card:hover {
+            transform: perspective(1000px) rotateY(5deg) scale(1.05);
+            box-shadow: 0 20px 30px -10px rgba(79, 70, 229, 0.2);
+        }
+
+        /* 8D glow effect for popular pricing plan */
+        .popular-plan {
+            animation: pulse-glow 2.5s infinite ease-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 40px rgba(79, 70, 229, 0.2); }
+            50% { box-shadow: 0 0 35px rgba(124, 58, 237, 0.5), 0 0 55px rgba(79, 70, 229, 0.35); }
+        }
+
+        /* Welcome Popup Styles */
+        #welcome-popup-overlay.hidden, #welcome-popup.hidden { display: none; }
+        #welcome-popup-overlay { transition: background-color 0.3s ease-in-out; }
+        #welcome-popup {
+            background: linear-gradient(145deg, #1e1b4b, #312e81);
+            animation: fadeInScale 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 15px rgba(124, 58, 237, 0.4);
+            transition: transform 0.3s ease-out;
+        }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+        @keyframes fadeOutScale {
+            from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            to { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+        }
+    </style>
+</head>
+<body class="bg-brand-bg text-slate-800 antialiased">
+
+    <!-- ===== Welcome Popup ===== -->
+    <div id="welcome-popup-overlay" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] transition-opacity duration-300"></div>
+    <div id="welcome-popup" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-lg p-8 md:p-12 rounded-2xl text-white text-center z-[101]">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="text-shadow: 0 2px 15px rgba(124, 58, 237, 0.8);">Welcome</h2>
+        <p class="text-lg text-indigo-200 mb-8">to the official website of<br><strong class="font-semibold text-white">Bhavik Patel & Associates</strong></p>
+        <button id="close-popup-btn" class="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 backdrop-blur-sm border border-white/20">
+            Explore
+        </button>
+    </div>
+
+    <!-- ===== Header ===== -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 w-full z-50 shadow-sm transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-brand-dark">
+                Bhavik Patel & Associates
+            </a>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-slate-600 hover:text-brand-primary font-medium">Home</a>
+                <a href="#about" class="nav-link text-slate-600 hover:text-brand-primary font-medium">About</a>
+                <a href="#services" class="nav-link text-slate-600 hover:text-brand-primary font-medium">Services</a>
+                <a href="#testimonials" class="nav-link text-slate-600 hover:text-brand-primary font-medium">Testimonials</a>
+                <a href="#faq" class="nav-link text-slate-600 hover:text-brand-primary font-medium">FAQ</a>
+            </div>
+            <div class="hidden lg:flex">
+                 <a href="#contact" class="bg-brand-primary text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-brand-secondary transition-all duration-300 transform hover:scale-105">
+                    Get Started
+                </a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden" aria-label="Open menu">
+                <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white w-full absolute top-full left-0 shadow-lg">
+            <div class="flex flex-col space-y-4 p-6">
+                <a href="#home" class="mobile-nav-link text-slate-600 hover:text-brand-primary font-medium">Home</a>
+                <a href="#about" class="mobile-nav-link text-slate-600 hover:text-brand-primary font-medium">About</a>
+                <a href="#services" class="mobile-nav-link text-slate-600 hover:text-brand-primary font-medium">Services</a>
+                <a href="#testimonials" class="mobile-nav-link text-slate-600 hover:text-brand-primary font-medium">Testimonials</a>
+                <a href="#faq" class="mobile-nav-link text-slate-600 hover:text-brand-primary font-medium">FAQ</a>
+                 <a href="#contact" class="mobile-nav-link bg-brand-primary text-white text-center font-semibold mt-4 px-5 py-2 rounded-lg shadow-md hover:bg-brand-secondary transition-all duration-300">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== Hero Section ===== -->
+        <section id="home" class="relative bg-white pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div id="hero-shape-1" class="absolute top-0 right-0 -translate-x-1/4 translate-y-1/4 w-96 h-96 bg-violet-200 rounded-full opacity-50 blur-3xl transition-transform duration-500 ease-out"></div>
+                <div id="hero-shape-2" class="absolute bottom-0 left-0 translate-x-1/4 -translate-y-1/4 w-96 h-96 bg-indigo-200 rounded-full opacity-50 blur-3xl transition-transform duration-500 ease-out"></div>
+            </div>
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-brand-dark leading-tight" data-aos="fade-up">
+                    Streamline Your Finances. <br class="hidden md:block">
+                    <span class="bg-clip-text text-transparent bg-gradient-cta">Maximize Your Growth.</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-slate-600" data-aos="fade-up" data-aos-delay="200">
+                    Your trusted partner for comprehensive accounting, tax, and compliance solutions. We leverage technology and expertise to drive your business forward.
+                </p>
+                <div class="mt-10 flex justify-center space-x-4" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#services" class="bg-brand-primary text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-brand-secondary transition-all duration-300 transform hover:scale-105">
+                        Explore Our Services
+                    </a>
+                     <a href="#contact" class="bg-white text-brand-primary font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-slate-100 transition-all duration-300 transform hover:scale-105 border border-slate-200">
+                        Book a Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== How It Works Section ===== -->
+        <section id="about" class="py-20 lg:py-24 wavy-bg">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-brand-dark" data-aos="fade-up">How Our Process Delivers Results</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">We follow a structured, client-centric approach to ensure accuracy and strategic value.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="text-center p-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center justify-center h-16 w-16 mx-auto bg-indigo-100 rounded-full mb-5">
+                            <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V4a2 2 0 012-2h4.586a1 1 0 01.707.293l2.414 2.414a1 1 0 01.293.707V8z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-brand-dark mb-2">1. Discovery & Onboarding</h3>
+                        <p class="text-slate-500">We start by understanding your unique business needs, challenges, and goals.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="text-center p-6" data-aos="fade-up" data-aos-delay="200">
+                         <div class="flex items-center justify-center h-16 w-16 mx-auto bg-indigo-100 rounded-full mb-5">
+                            <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-brand-dark mb-2">2. Strategy & Execution</h3>
+                        <p class="text-slate-500">Our experts implement tailored solutions, from bookkeeping to tax filing and automation.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="text-center p-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center justify-center h-16 w-16 mx-auto bg-indigo-100 rounded-full mb-5">
+                            <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-brand-dark mb-2">3. Reporting & Insights</h3>
+                        <p class="text-slate-500">Receive clear, actionable reports (MIS, Financials) to make informed decisions.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="text-center p-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex items-center justify-center h-16 w-16 mx-auto bg-indigo-100 rounded-full mb-5">
+                             <svg class="w-8 h-8 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-brand-dark mb-2">4. Continuous Advisory</h3>
+                        <p class="text-slate-500">We provide ongoing support and strategic advice to help your business thrive and adapt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Key Services Section ===== -->
+        <section id="services" class="py-20 lg:py-24 bg-brand-bg">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-brand-dark" data-aos="fade-up">Services We Offer</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">End-to-end financial, tax, and compliance solutions tailored for your business.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Service Card 1: Accounting -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-sm" data-aos="fade-up">
+                        <div class="flex items-center justify-center h-16 w-16 bg-indigo-100 rounded-full mb-6">
+                             <svg class="w-8 h-8 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="8" y2="14"/><line x1="16" y1="18" x2="8" y2="18"/><line x1="10" y1="10" x2="14" y2="10"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Accounting & Reporting</h3>
+                        <p class="text-slate-500 mb-5">Comprehensive bookkeeping and financial statement preparation for Indian, US, and UK standards.</p>
+                        <button class="learn-more-btn font-semibold text-brand-primary hover:text-brand-secondary" data-service="accounting">
+                            Learn More &rarr;
+                        </button>
+                    </div>
+
+                    <!-- Service Card 2: Taxation -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center justify-center h-16 w-16 bg-violet-100 rounded-full mb-6">
+                           <svg class="w-8 h-8 text-brand-secondary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Direct & Indirect Taxation</h3>
+                        <p class="text-slate-500 mb-5">Expert handling of Income Tax, GST, and TDS compliance, from filing to audit and refunds.</p>
+                        <button class="learn-more-btn font-semibold text-brand-primary hover:text-brand-secondary" data-service="taxation">
+                            Learn More &rarr;
+                        </button>
+                    </div>
+                    
+                    <!-- Service Card 3: Corporate Compliance -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center justify-center h-16 w-16 bg-indigo-100 rounded-full mb-6">
+                           <svg class="w-8 h-8 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Corporate Compliance</h3>
+                        <p class="text-slate-500 mb-5">End-to-end LLP/Company incorporation, ROC filings, and secretarial services to ensure good standing.</p>
+                        <button class="learn-more-btn font-semibold text-brand-primary hover:text-brand-secondary" data-service="compliance">
+                            Learn More &rarr;
+                        </button>
+                    </div>
+
+                    <!-- Service Card 4: Audit & Assurance -->
+                     <div class="service-card bg-white rounded-xl p-8 shadow-sm" data-aos="fade-up">
+                        <div class="flex items-center justify-center h-16 w-16 bg-violet-100 rounded-full mb-6">
+                            <svg class="w-8 h-8 text-brand-secondary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><circle cx="10" cy="15" r="3"/><path d="m12.5 17.5-1.5-1.5"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Audit & Assurance</h3>
+                        <p class="text-slate-500 mb-5">Internal, Tax, and GST audits with robust documentation and actionable recommendations.</p>
+                        <button class="learn-more-btn font-semibold text-brand-primary hover:text-brand-secondary" data-service="audit">
+                            Learn More &rarr;
+                        </button>
+                    </div>
+
+                    <!-- Service Card 5: Cost Accounting -->
+                     <div class="service-card bg-white rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center justify-center h-16 w-16 bg-indigo-100 rounded-full mb-6">
+                           <svg class="w-8 h-8 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8a6 6 0 0 0-6-6"/><path d="M13.3 13a6 6 0 0 0-6-6"/><path d="M9 17.5a2.5 2.5 0 0 1-5 0"/><path d="M18 17.5a2.5 2.5 0 0 1-5 0"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Cost & Management Accounting</h3>
+                        <p class="text-slate-500 mb-5">Optimize your operations with detailed cost analysis, product costing, and performance reporting.</p>
+                        <button class="learn-more-btn font-semibold text-brand-primary hover:text-brand-secondary" data-service="costing">
+                            Learn More &rarr;
+                        </button>
+                    </div>
+
+                    <!-- Service Card 6: Business Automation -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center justify-center h-16 w-16 bg-violet-100 rounded-full mb-6">
+                            <svg class="w-8 h-8 text-brand-secondary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Business Automation</h3>
+                        <p class="text-slate-500 mb-5">Enhance efficiency with custom Excel, VBA, and Power BI solutions for finance and tax tasks.</p>
+                        <button class="learn-more-btn font-semibold text-brand-primary hover:text-brand-secondary" data-service="automation">
+                            Learn More &rarr;
+                        </button>
+                    </div>
+
+                    <!-- Service Card 7: Litigation -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-sm" data-aos="fade-up">
+                        <div class="flex items-center justify-center h-16 w-16 bg-indigo-100 rounded-full mb-6">
+                           <svg class="w-8 h-8 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m10 10.5 4 4m-4 0 4-4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Tax Litigation & Representation</h3>
+                        <p class="text-slate-500 mb-5">Professional representation and response drafting for notices from tax authorities.</p>
+                        <button class="learn-more-btn font-semibold text-brand-primary hover:text-brand-secondary" data-service="litigation">
+                            Learn More &rarr;
+                        </button>
+                    </div>
+                    
+                    <!-- Service Card 8: International -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center justify-center h-16 w-16 bg-violet-100 rounded-full mb-6">
+                           <svg class="w-8 h-8 text-brand-secondary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">International Compliance</h3>
+                        <p class="text-slate-500 mb-5">Specialized services for UK VAT returns, finalization of foreign accounts, and IEC registration.</p>
+                        <button class="learn-more-btn font-semibold text-brand-primary hover:text-brand-secondary" data-service="international">
+                            Learn More &rarr;
+                        </button>
+                    </div>
+
+                    <!-- Service Card 9 (Virtual CFO) -->
+                    <div class="service-card bg-white rounded-xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center justify-center h-16 w-16 bg-indigo-100 rounded-full mb-6">
+                           <svg class="w-8 h-8 text-brand-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Virtual CFO & Advisory</h3>
+                        <p class="text-slate-500 mb-5">High-level strategic guidance, including budgeting, forecasting, and CMA/Project Reports.</p>
+                        <button class="learn-more-btn font-semibold text-brand-primary hover:text-brand-secondary" data-service="advisory">
+                            Learn More &rarr;
+                        </button>
+                    </div>
+                                      
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Features/Benefits Section ===== -->
+        <section class="py-20 lg:py-24 bg-white">
+             <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-brand-dark">Why Clients Choose Us</h2>
+                        <p class="mt-4 text-lg text-slate-600">We are more than just accountants; we are your strategic partners dedicated to your success.</p>
+                        <ul class="mt-8 space-y-5">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 flex items-center justify-center bg-green-100 rounded-full">
+                                    <svg class="h-4 w-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                </div>
+                                <p class="ml-4 text-slate-600"><strong class="font-semibold text-brand-dark">Technology-Driven Approach:</strong> Leveraging automation and digital tools for unmatched efficiency and accuracy.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 flex items-center justify-center bg-green-100 rounded-full">
+                                    <svg class="h-4 w-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                </div>
+                                <p class="ml-4 text-slate-600"><strong class="font-semibold text-brand-dark">Deep Domain Expertise:</strong> 7+ years of qualified CMA experience across diverse industries ensures robust and compliant solutions.</p>
+                            </li>
+                             <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 flex items-center justify-center bg-green-100 rounded-full">
+                                    <svg class="h-4 w-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                </div>
+                                <p class="ml-4 text-slate-600"><strong class="font-semibold text-brand-dark">Proactive & Timely Communication:</strong> We keep you informed at every step, ensuring you never miss a deadline or an opportunity.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative h-96" data-aos="fade-left" data-aos-delay="200">
+                         <div class="absolute inset-0 bg-white p-6 rounded-2xl shadow-xl transform rotate-3">
+                            <h4 class="font-bold text-brand-dark">Client Success Story</h4>
+                            <p class="text-sm text-slate-500 mt-2 italic">"Their GST automation solution saved us over 20 hours a month and eliminated reconciliation errors. A true game-changer for our finance team."</p>
+                            <div class="mt-4 border-t pt-3">
+                                <p class="font-semibold text-sm">Manufacturing Co.</p>
+                                <p class="text-xs text-slate-400">Ahmedabad</p>
+                            </div>
+                         </div>
+                         <div class="absolute inset-0 bg-brand-primary text-white p-6 rounded-2xl shadow-2xl transform -rotate-3">
+                             <h4 class="font-bold">Proactive Tax Planning</h4>
+                            <p class="text-sm text-indigo-200 mt-2 italic">"Bhavik Patel & Associates' advisory helped us structure our business efficiently, resulting in significant tax savings year-on-year."</p>
+                            <div class="mt-4 border-t border-indigo-400 pt-3">
+                                <p class="font-semibold text-sm">Tech Startup</p>
+                                <p class="text-xs text-indigo-300">Gujarat</p>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== Testimonials Section ===== -->
+        <section id="testimonials" class="py-20 lg:py-24 bg-brand-bg">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-brand-dark" data-aos="fade-up">Trusted by Businesses Like Yours</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Hear what our clients have to say about our partnership.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                        <p class="text-slate-600 italic">"The team's attention to detail during our annual audit support was exceptional. They are thorough, professional, and their insights have been invaluable for our internal controls."</p>
+                        <div class="flex items-center mt-6">
+                            <div class="flex-shrink-0 h-12 w-12 flex items-center justify-center bg-indigo-200 text-brand-primary font-bold rounded-full">
+                                AS
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-semibold text-brand-dark">Ankit Shah</p>
+                                <p class="text-sm text-slate-500">Director, ABC Pvt. Ltd.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                        <p class="text-slate-600 italic">"Navigating GST compliance was a major headache for us. Bhavik Patel & Associates streamlined everything, from returns to ITC reconciliation. Highly recommended."</p>
+                        <div class="flex items-center mt-6">
+                             <div class="flex-shrink-0 h-12 w-12 flex items-center justify-center bg-violet-200 text-brand-secondary font-bold rounded-full">
+                                RV
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-semibold text-brand-dark">Riya Verma</p>
+                                <p class="text-sm text-slate-500">Owner, Creative Exports</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                        <p class="text-slate-600 italic">"As a startup, their Virtual CFO service was the perfect solution. We get high-level strategic advice without the cost of a full-time CFO. They are a core part of our growth journey."</p>
+                        <div class="flex items-center mt-6">
+                            <div class="flex-shrink-0 h-12 w-12 flex items-center justify-center bg-indigo-200 text-brand-primary font-bold rounded-full">
+                                MP
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-semibold text-brand-dark">Mehul Patel</p>
+                                <p class="text-sm text-slate-500">Founder, Tech Innovations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Pricing Section ===== -->
+        <section id="pricing" class="py-20 lg:py-24 bg-white">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-brand-dark" data-aos="fade-up">Transparent Pricing Plans</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Choose a plan that fits your business needs. All plans are customizable.</p>
+                </div>
+                <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+                    <!-- Plan 1: Essential Compliance -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-xl font-bold text-center text-brand-dark">Essential Compliance</h3>
+                        <p class="mt-2 text-center text-slate-500">For Freelancers & Startups</p>
+                        <p class="text-4xl font-extrabold text-center mt-6 text-brand-dark">Custom</p>
+                        <ul class="mt-8 space-y-4 text-slate-600 flex-grow">
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Income Tax Return Filing</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>GST Return Filing (GSTR-1, 3B)</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>TDS Compliance & Filing</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Email & Chat Support</li>
+                        </ul>
+                        <a href="#contact" class="block w-full text-center mt-8 bg-white border border-brand-primary text-brand-primary font-semibold py-3 rounded-lg hover:bg-brand-primary hover:text-white transition-all">Get Quote</a>
+                    </div>
+                    <!-- Plan 2: Growth Partner -->
+                    <div class="popular-plan bg-brand-dark p-10 rounded-xl shadow-2xl relative flex flex-col" data-aos="fade-up">
+                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-gradient-cta text-white px-4 py-1 text-sm font-semibold rounded-full">MOST POPULAR</div>
+                        <h3 class="text-xl font-bold text-center text-white">Growth Partner</h3>
+                        <p class="mt-2 text-center text-indigo-300">For Growing SMEs & LLPs</p>
+                        <p class="text-4xl font-extrabold text-center mt-6 text-white">Custom</p>
+                        <ul class="mt-8 space-y-4 text-indigo-300 flex-grow">
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Everything in Essential Compliance</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Full Accounting & Bookkeeping</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Comprehensive GST & ITC Reconciliation</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>ROC Filings & Secretarial Support</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Income Tax & Statutory Audit</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" 
+viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>GST Audit</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor"  viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Priority Phone Support</li>
+                        </ul>
+                        <a href="#contact" class="block w-full text-center mt-8 bg-white text-brand-primary font-semibold py-3 rounded-lg hover:bg-slate-200 transition-all">Get Quote</a>
+                    </div>
+                    <!-- Plan 3: Strategic CFO -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-xl font-bold text-center text-brand-dark">Strategic CFO</h3>
+                        <p class="mt-2 text-center text-slate-500">For Established Companies</p>
+                        <p class="text-4xl font-extrabold text-center mt-6 text-brand-dark">Custom</p>
+                         <ul class="mt-8 space-y-4 text-slate-600 flex-grow">
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Everything in Growth Partner</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Virtual CFO Services</li>
+                             <li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Advanced Management Accounting</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Custom Automation & BI Dashboards</li>
+                            <li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Tax Planning & Litigation Support</li>
+                        </ul>
+                        <a href="#contact" class="block w-full text-center mt-8 bg-white border border-brand-primary text-brand-primary font-semibold py-3 rounded-lg hover:bg-brand-primary hover:text-white transition-all">Get Quote</a>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- ===== FAQ Section ===== -->
+        <section id="faq" class="py-20 lg:py-24 bg-brand-bg">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-brand-dark" data-aos="fade-up">Frequently Asked Questions</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Answers to common questions about our services and processes.</p>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <div id="main-faq-accordion" class="space-y-4">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item bg-white rounded-lg" data-aos="fade-up">
+                            <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                <span class="text-lg font-semibold text-brand-dark">What is a Virtual CFO and how can it benefit my startup?</span>
+                                <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                <p>A Virtual CFO provides high-level financial strategy and oversight without the cost of a full-time executive. For a startup, this means access to expert budgeting, forecasting, cash flow management, and strategic advice that helps you scale efficiently, secure funding, and maintain financial health from day one.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item bg-white rounded-lg" data-aos="fade-up">
+                            <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                <span class="text-lg font-semibold text-brand-dark">Which accounting software do you work with?</span>
+                                <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                <p>We are proficient in a wide range of accounting software to suit your needs, including Tally ERP 9, Tally Prime, Munim ERP, ZIP ERP, Zoho, and QuickBooks Online (QBO). We can adapt to your existing system or help you migrate to a more efficient platform.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 3 -->
+                        <div class="faq-item bg-white rounded-lg" data-aos="fade-up">
+                            <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                <span class="text-lg font-semibold text-brand-dark">How do you ensure the security of my financial data?</span>
+                                <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                <p>Data security is our top priority. We use secure, encrypted cloud-based platforms for data storage and communication. We adhere to strict confidentiality agreements and access controls to ensure your sensitive financial information is protected at all times.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 4 -->
+                        <div class="faq-item bg-white rounded-lg" data-aos="fade-up">
+                            <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                <span class="text-lg font-semibold text-brand-dark">Can you help my business with tax planning, not just filing?</span>
+                                <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                <p>Absolutely. Tax planning is a core part of our advisory services. We go beyond simple compliance to proactively identify opportunities for tax savings, structure transactions efficiently, and help you make informed business decisions that legally minimize your tax liability throughout the year.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 text-center" data-aos="fade-up">
+                        <button id="more-faq-btn" class="bg-white text-brand-primary font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-slate-50 transition-all duration-300 transform hover:scale-105 border border-slate-200">
+                           View More FAQs
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contact Section ===== -->
+        <section id="contact" class="relative py-20 lg:py-32 animated-gradient text-white overflow-hidden">
+             <div class="absolute top-0 left-0 w-full h-full opacity-10" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzQ2NGFmNSIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjAiIHI9IjIwIiBmaWxsPSIjNmM2ZWRkIi8+PHJlY3QgeD0iNDAiIHk9IjYwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9IiM2YzZlZGQiIHRyYW5zZm9ybT0icm90YXRlKDQ1 EgNTAgNzApIi8+PC9zdmc+'); background-repeat: repeat;"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl lg:text-4xl font-bold">Ready to Grow Your Business?</h2>
+                        <p class="mt-4 text-lg text-indigo-200">Let's talk about how we can help. Fill out the form, or contact us directly through phone or email. We look forward to partnering with you.</p>
+                        <div class="mt-8 space-y-4">
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 mr-4 text-indigo-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                <a href="mailto:bhavik.mathukiya@gmail.com" class="hover:underline">bhavik.mathukiya@gmail.com</a>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 mr-4 text-indigo-200 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <span>B 504, Sarthak Lakeview, Behind Kanba Hospital, Nikol, Ahmedabad-382350</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-2xl" data-aos="fade-left">
+                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                            <div class="space-y-6">
+                                <div>
+                                    <label for="name" class="text-sm font-medium text-slate-700">Full Name</label>
+                                    <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary text-slate-800">
+                                </div>
+                                <div>
+                                    <label for="email" class="text-sm font-medium text-slate-700">Email Address</label>
+                                    <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary text-slate-800">
+                                </div>
+                                <div>
+                                    <label for="phone" class="text-sm font-medium text-slate-700">Phone Number (Optional)</label>
+                                    <input type="tel" name="phone" id="phone" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary text-slate-800">
+                                </div>
+                                <div>
+                                    <label for="message" class="text-sm font-medium text-slate-700">Message</label>
+                                    <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary text-slate-800"></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-brand-primary hover:bg-brand-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-all">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- ===== Footer ===== -->
+    <footer class="bg-brand-dark text-indigo-200">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <div class="col-span-2 lg:col-span-2">
+                    <h3 class="text-xl font-bold text-white">Bhavik Patel & Associates</h3>
+                    <p class="mt-3 text-sm text-indigo-300 max-w-sm">Your partner in financial excellence and compliance. We provide expert advisory to navigate the complexities of modern business.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase">Quick Links</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-white tracking-wider uppercase">Legal</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+                 <div class="col-span-2 md:col-span-1">
+                    <h4 class="font-semibold text-white tracking-wider uppercase">Connect</h4>
+                    <div class="flex mt-4 space-x-4">
+                        <a href="#" class="text-indigo-300 hover:text-white transition-colors" aria-label="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://wa.me/919574426110" target="_blank" class="text-indigo-300 hover:text-white transition-colors" aria-label="WhatsApp">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99 0-3.903-.52-5.687-1.475l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-indigo-800 pt-8 text-center text-sm text-indigo-400">
+                <p>&copy; <span id="currentYear"></span> Bhavik Patel & Associates. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp CTA -->
+    <a href="https://wa.me/919574426110" target="_blank" class="lg:hidden fixed bottom-5 right-5 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg z-40 transform hover:scale-110 transition-transform" aria-label="Contact on WhatsApp">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99 0-3.903-.52-5.687-1.475l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+    <!-- ===== Service Details Modal ===== -->
+    <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true">
+        <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300">
+            <div class="flex justify-between items-center p-5 border-b sticky top-0 bg-white z-10">
+                <h3 id="modal-title" class="text-2xl font-bold text-brand-dark">Service Details</h3>
+                <button id="modal-close-btn" class="text-slate-500 hover:text-brand-dark" aria-label="Close modal">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="modal-body" class="p-8">
+                <!-- Content will be injected by JavaScript -->
+            </div>
+             <div class="p-6 bg-slate-50 border-t sticky bottom-0">
+                <a href="#contact" id="modal-cta" class="bg-brand-primary text-white font-semibold text-center w-full block px-6 py-3 rounded-lg shadow-md hover:bg-brand-secondary transition-all">
+                    Contact for Consultation
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== More FAQs Modal ===== -->
+    <div id="faq-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col transform scale-95 transition-transform duration-300">
+            <div class="flex justify-between items-center p-5 border-b sticky top-0 bg-white z-10">
+                <h3 class="text-2xl font-bold text-brand-dark">More Questions & Answers</h3>
+                <button id="faq-modal-close-btn" class="text-slate-500 hover:text-brand-dark" aria-label="Close modal">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="faq-modal-body" class="p-8 overflow-y-auto">
+                <div id="modal-faq-accordion" class="space-y-6">
+                    <!-- GST FAQs -->
+                    <div>
+                        <h4 class="text-xl font-bold text-brand-primary mb-4">Goods & Services Tax (GST)</h4>
+                        <div class="space-y-4">
+                             <div class="faq-item bg-slate-50 rounded-lg">
+                                <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                    <span class="text-lg font-semibold text-brand-dark">Who is required to register for GST?</span>
+                                    <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                    <p>Any business whose aggregate turnover in a financial year exceeds ₹40 lakhs (for goods) or ₹20 lakhs (for services) is required to register. This limit is ₹20 lakhs and ₹10 lakhs respectively for special category states. Registration is also mandatory for certain businesses irrespective of turnover, such as those engaged in inter-state supply, e-commerce operators, and casual taxable persons.</p>
+                                </div>
+                            </div>
+                             <div class="faq-item bg-slate-50 rounded-lg">
+                                <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                    <span class="text-lg font-semibold text-brand-dark">What is the difference between GSTR-1 and GSTR-3B?</span>
+                                    <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                    <p>GSTR-1 is a monthly or quarterly return that details all your outward supplies (sales). GSTR-3B is a monthly summary return where you declare your summary GST liabilities and claim Input Tax Credit (ITC). Essentially, GSTR-1 provides the details, and GSTR-3B is for payment of the net tax liability.</p>
+                                </div>
+                            </div>
+                             <div class="faq-item bg-slate-50 rounded-lg">
+                                <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                    <span class="text-lg font-semibold text-brand-dark">What is Input Tax Credit (ITC) and why is GSTR-2B matching important?</span>
+                                    <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                    <p>ITC is the tax you've already paid on your inputs (purchases) that you can use to reduce your final tax liability on outputs (sales). GSTR-2B is an auto-drafted statement that shows the ITC available to you based on the GSTR-1 filed by your suppliers. Matching your purchase records with GSTR-2B is crucial to ensure you claim the correct ITC and avoid notices for excess claims.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item bg-slate-50 rounded-lg">
+                                <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                    <span class="text-lg font-semibold text-brand-dark">What should I do if I receive a GST notice (e.g., ASMT-10)?</span>
+                                    <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                    <p>Do not ignore it. A notice like ASMT-10 is a scrutiny notice for discrepancies in your returns. It's important to respond within the stipulated time (usually 30 days). We can help you analyze the notice, gather the necessary supporting documents, and draft a clear, well-supported reply to the tax officer to resolve the issue.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Income Tax FAQs -->
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-brand-primary mb-4">Income Tax</h4>
+                         <div class="space-y-4">
+                             <div class="faq-item bg-slate-50 rounded-lg">
+                                <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                    <span class="text-lg font-semibold text-brand-dark">Which ITR form should I file?</span>
+                                    <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                    <p>The correct ITR form depends on your sources of income. For example, ITR-1 (Sahaj) is for resident individuals with income up to ₹50 lakh from salary, one house property, and other sources. ITR-3 is for individuals/HUFs with income from business or profession. ITR-4 (Sugam) is for those opting for the presumptive taxation scheme. We can assess your income profile to determine the correct form for you.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item bg-slate-50 rounded-lg">
+                                <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                    <span class="text-lg font-semibold text-brand-dark">What is the purpose of Form 26AS and the Annual Information Statement (AIS)?</span>
+                                    <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                    <p>Form 26AS is your tax passbook, showing details of tax deducted at source (TDS), tax collected at source (TCS), and advance tax paid. The AIS is a more comprehensive statement containing details of your financial transactions (like interest, dividends, securities transactions) reported by various entities. It's crucial to reconcile your income with both these statements before filing your ITR to ensure accuracy and avoid discrepancies.</p>
+                                </div>
+                            </div>
+                             <div class="faq-item bg-slate-50 rounded-lg">
+                                <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                    <span class="text-lg font-semibold text-brand-dark">When is a tax audit under Section 44AB applicable?</span>
+                                    <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                    <p>A tax audit is mandatory for businesses if their total sales, turnover, or gross receipts exceed ₹1 crore in a financial year. For professionals, the limit is ₹50 lakh. However, the business turnover limit is increased to ₹10 crore if cash receipts and payments do not exceed 5% of the total receipts and payments, respectively.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Corporate Compliance FAQs -->
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-brand-primary mb-4">Corporate Compliance (ROC)</h4>
+                         <div class="space-y-4">
+                             <div class="faq-item bg-slate-50 rounded-lg">
+                                <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                    <span class="text-lg font-semibold text-brand-dark">What are the main annual filings for a Private Limited Company?</span>
+                                    <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                    <p>The two primary annual filings are Form MGT-7/7A (Annual Return), which must be filed within 60 days of the Annual General Meeting (AGM), and Form AOC-4 (Financial Statements), which must be filed within 30 days of the AGM. Additionally, all directors must complete their DIR-3 KYC filing annually.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item bg-slate-50 rounded-lg">
+                                <button class="faq-question flex justify-between items-center w-full p-6 text-left">
+                                    <span class="text-lg font-semibold text-brand-dark">What is the difference between an LLP and a Private Limited Company?</span>
+                                    <svg class="faq-icon w-6 h-6 text-brand-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div class="faq-answer hidden p-6 pt-0 text-slate-600">
+                                    <p>An LLP combines the flexibility of a partnership with the benefit of limited liability of a company. It has lower compliance requirements and costs compared to a Private Limited Company. A company, on the other hand, has a more rigid structure but is often preferred for raising external funding from venture capitalists and angel investors.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+    </script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Welcome Popup Handler ---
+            const welcomePopup = document.getElementById('welcome-popup');
+            const welcomeOverlay = document.getElementById('welcome-popup-overlay');
+            const closePopupBtn = document.getElementById('close-popup-btn');
+            
+            const showWelcomePopup = () => {
+                if (!sessionStorage.getItem('welcomePopupShown')) {
+                    welcomeOverlay.classList.remove('hidden');
+                    welcomePopup.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            const hideWelcomePopup = () => {
+                welcomePopup.style.animation = 'fadeOutScale 0.3s ease-out forwards';
+                welcomeOverlay.style.opacity = '0';
+                
+                setTimeout(() => {
+                    welcomeOverlay.classList.add('hidden');
+                    welcomePopup.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                    welcomePopup.style.animation = 'fadeInScale 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards';
+                    welcomeOverlay.style.opacity = '';
+                }, 300);
+
+                sessionStorage.setItem('welcomePopupShown', 'true');
+            };
+            
+            setTimeout(showWelcomePopup, 1500);
+            closePopupBtn.addEventListener('click', hideWelcomePopup);
+            welcomeOverlay.addEventListener('click', hideWelcomePopup);
+
+            // --- 6D/8D Interactive Hero Background ---
+            const heroSection = document.getElementById('home');
+            const shape1 = document.getElementById('hero-shape-1');
+            const shape2 = document.getElementById('hero-shape-2');
+            
+            heroSection.addEventListener('mousemove', (e) => {
+                if (!window.matchMedia("(pointer: coarse)").matches) {
+                    const { clientX, clientY } = e;
+                    const { innerWidth, innerHeight } = window;
+                    const moveX = (clientX - innerWidth / 2) / (innerWidth / 2);
+                    const moveY = (clientY - innerHeight / 2) / (innerHeight / 2);
+                    const strength = 20; 
+                    shape1.style.transform = `translate(${moveX * strength * -1}px, ${moveY * strength * -1}px)`;
+                    shape2.style.transform = `translate(${moveX * strength}px, ${moveY * strength}px)`;
+                }
+            });
+
+            // --- Mobile Menu Handler ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOpenIcon = document.getElementById('menu-open-icon');
+            const menuCloseIcon = document.getElementById('menu-close-icon');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            const toggleMenu = () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                menuOpenIcon.classList.toggle('hidden', !isHidden);
+                menuCloseIcon.classList.toggle('hidden', isHidden);
+                mobileMenuButton.setAttribute('aria-expanded', !isHidden);
+            };
+
+            mobileMenuButton.addEventListener('click', toggleMenu);
+            
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                       toggleMenu();
+                    }
+                });
+            });
+
+            // --- General Accordion Handler ---
+            const setupAccordion = (containerId) => {
+                 const accordionContainer = document.getElementById(containerId);
+                 if (!accordionContainer) return;
+
+                 const faqItems = accordionContainer.querySelectorAll('.faq-item');
+                 faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question');
+                    const answer = item.querySelector('.faq-answer');
+                    const icon = item.querySelector('.faq-icon');
+
+                    question.addEventListener('click', () => {
+                        const isVisible = !answer.classList.contains('hidden');
+
+                        // Close all others within the same container
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.querySelector('.faq-answer').classList.add('hidden');
+                                otherItem.querySelector('.faq-icon').classList.remove('rotate-180');
+                            }
+                        });
+
+                        // Toggle the clicked one
+                        answer.classList.toggle('hidden');
+                        icon.classList.toggle('rotate-180', !isVisible);
+                    });
+                });
+            }
+            
+            setupAccordion('main-faq-accordion');
+            setupAccordion('modal-faq-accordion');
+
+
+            // --- More FAQs Modal Handler ---
+            const faqModal = document.getElementById('faq-modal');
+            const faqModalContent = faqModal.querySelector('.transform');
+            const moreFaqBtn = document.getElementById('more-faq-btn');
+            const faqModalCloseBtn = document.getElementById('faq-modal-close-btn');
+
+            const openFaqModal = () => {
+                faqModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => faqModalContent.classList.remove('scale-95'), 10);
+            };
+
+            const closeFaqModal = () => {
+                faqModalContent.classList.add('scale-95');
+                 setTimeout(() => {
+                    faqModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            };
+
+            moreFaqBtn.addEventListener('click', openFaqModal);
+            faqModalCloseBtn.addEventListener('click', closeFaqModal);
+            faqModal.addEventListener('click', (e) => {
+                if (e.target === faqModal) {
+                    closeFaqModal();
+                }
+            });
+
+
+            // --- Service Details Modal Handler ---
+            const modal = document.getElementById('service-modal');
+            const modalContent = document.getElementById('modal-content');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
+            const modalCta = document.getElementById('modal-cta');
+
+            const serviceDetails = {
+                accounting: {
+                    title: 'Accounting & Financial Reporting',
+                    details: `<p class="mb-6 text-slate-600">We provide a robust framework for your financial operations, ensuring compliance and providing critical insights for decision-making. Our services cover Indian, US, and UK GAAP standards.</p>
+                        <h4 class="font-semibold text-brand-dark mb-2">Key Deliverables:</h4>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li><strong>Bookkeeping & Finalization:</strong> Complete bookkeeping on Tally, QuickBooks Online (QBO), and other major platforms.</li>
+                            <li><strong>Financial Statement Preparation:</strong> Accurate preparation of Balance Sheets, P&L Statements, Cash Flow analysis, and consolidation.</li>
+                            <li><strong>MIS Reporting:</strong> Custom monthly/quarterly Management Information System (MIS) reports for strategic decision-making.</li>
+                        </ul>`
+                },
+                taxation: {
+                    title: 'Direct & Indirect Taxation',
+                    details: `<p class="mb-6 text-slate-600">Our comprehensive tax services ensure you remain fully compliant while optimizing your tax position. We handle all aspects of Indian taxation, including Income Tax, GST, and TDS.</p>
+                        <h4 class="font-semibold text-brand-dark mb-3">Key Tax Services:</h4>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li><strong>Income Tax:</strong> ITR filing for all entities, advance tax computation, TDS/TCS compliance, and Form 15CA/CB handling.</li>
+                            <li><strong>GST Compliance:</strong> Registrations, monthly/quarterly return filing (GSTR-1, 3B, IFF), and annual returns (GSTR-9/9C).</li>
+                            <li><strong>GST Reconciliation & Refunds:</strong> Automated ITC matching (GSTR-2A/2B) and efficient processing of GST refunds.</li>
+                            <li><strong>E-Invoicing/E-Way Bill:</strong> Complete setup, automation, and advisory services.</li>
+                        </ul>`
+                },
+                compliance: {
+                    title: 'Corporate & ROC Compliance',
+                    details: `<p class="mb-6 text-slate-600">We manage all your corporate law and secretarial obligations to ensure your business remains compliant and avoids penalties. From incorporation to annual filings, we've got you covered.</p>
+                        <h4 class="font-semibold text-brand-dark mb-2">Key Deliverables:</h4>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li><strong>Entity Incorporation:</strong> End-to-end setup for Private Limited Companies, LLPs, and OPCs.</li>
+                            <li><strong>Annual ROC Filings:</strong> Timely filing of MGT-7, AOC-4, DIR-3 KYC, and other mandatory forms.</li>
+                            <li><strong>Event-Based Filings:</strong> Managing compliance for changes in directorship, share allotment, registered office, etc.</li>
+                            <li><strong>Secretarial Support:</strong> Maintenance of statutory registers and assistance with board meeting compliance.</li>
+                        </ul>`
+                },
+                audit: {
+                    title: 'Audit & Assurance',
+                    details: `<p class="mb-6 text-slate-600">Our audit services provide critical assurance over your financial reporting, strengthen internal controls, and ensure statutory compliance, giving stakeholders confidence.</p>
+                        <h4 class="font-semibold text-brand-dark mb-2">Key Deliverables:</h4>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li><strong>Internal Audit:</strong> Review of internal processes and controls to identify risks and improvement areas.</li>
+                            <li><strong>Tax Audit:</strong> Conducting audits under Section 44AB of the Income Tax Act.</li>
+                            <li><strong>GST Audit:</strong> Annual GST audits and reconciliation as per GST law.</li>
+                            <li><strong>Statutory Audit Support:</strong> Assisting in data preparation and audit schedules for external statutory auditors.</li>
+                            <li><strong>Special Audits:</strong> Including Stock Audits and Due Diligence reports.</li>
+                        </ul>`
+                },
+                costing: {
+                    title: 'Cost & Management Accounting',
+                    details: `<p class="mb-6 text-slate-600">Leverage our core CMA expertise to gain deep insights into your business costs, improve profitability, and make data-driven decisions for sustainable growth.</p>
+                        <h4 class="font-semibold text-brand-dark mb-2">Key Deliverables:</h4>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li><strong>Product & Process Costing:</strong> Detailed cost sheet preparation to determine the true cost of business activities.</li>
+                            <li><strong>Variance Analysis:</strong> Comparing standard costs to actual production costs to identify inefficiencies.</li>
+                            <li><strong>Cost Audit Support:</strong> Maintaining records as per CRA rules and assisting in cost audits.</li>
+                            <li><strong>Performance & MIS Reporting:</strong> Department-wise and product-wise profitability analysis.</li>
+                        </ul>`
+                },
+                automation: {
+                    title: 'Business Automation Solutions',
+                    details: `<p class="mb-6 text-slate-600">We empower your finance function by automating repetitive tasks, reducing errors, and creating powerful data visualizations for better insights using modern tools.</p>
+                        <h4 class="font-semibold text-brand-dark mb-2">Key Deliverables:</h4>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li><strong>Advanced Excel & VBA:</strong> Custom macro and VBA solutions for GST/ITC reconciliation, TDS workings, and MIS dashboards.</li>
+                            <li><strong>Power Query & Power BI:</strong> Developing interactive BI dashboards, cleaning and transforming data, and integrating with Tally/ERPs.</li>
+                            <li><strong>Custom Workflow Automation:</strong> Designing automated workflows for key accounting and tax processes.</li>
+                        </ul>`
+                },
+                litigation: {
+                    title: 'Tax Litigation & Representation',
+                    details: `<p class="mb-6 text-slate-600">Navigate the complexities of tax disputes with confidence. We provide expert support from drafting initial replies to representing you before tax authorities.</p>
+                        <h4 class="font-semibold text-brand-dark mb-2">Key Deliverables:</h4>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li><strong>Notice Response:</strong> Drafting and filing well-reasoned replies to notices from GST, Income Tax, and other departments.</li>
+                            <li><strong>Departmental Coordination:</strong> Acting as your representative to engage with tax authorities and resolve issues.</li>
+                            <li><strong>Appeal Preparation:</strong> Assisting in the preparation and filing of appeals before appellate authorities.</li>
+                            <li><strong>Compliance Scrutiny Support:</strong> Handholding during assessments and scrutiny proceedings.</li>
+                        </ul>`
+                },
+                international: {
+                    title: 'International Compliance',
+                    details: `<p class="mb-6 text-slate-600">We provide specialized compliance services for businesses with international operations, ensuring you navigate cross-border regulations seamlessly.</p>
+                        <h4 class="font-semibold text-brand-dark mb-2">Key Deliverables:</h4>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li><strong>UK VAT Compliance:</strong> Complete handling of UK VAT returns and submission of VAT 100 reports.</li>
+                            <li><strong>Foreign Accounting Finalization:</strong> Expertise in finalizing accounts as per US GAAP and UK GAAP.</li>
+                            <li><strong>Import-Export Compliance:</strong> Assistance with Import Export Code (IEC) registration and related advisory.</li>
+                            <li><strong>Form 15CA/CB:</strong> Handling compliance for foreign remittances.</li>
+                        </ul>`
+                },
+                 advisory: {
+                    title: 'Virtual CFO & Strategic Advisory',
+                    details: `<p class="mb-6 text-slate-600">Gain access to high-level financial expertise and strategic guidance without the overhead of a full-time CFO. We act as your strategic partner to drive growth and profitability.</p>
+                        <h4 class="font-semibold text-brand-dark mb-2">Key Deliverables:</h4>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                             <li><strong>Business Setup & Structuring:</strong> Guidance on optimal entity selection and structure.</li>
+                            <li><strong>Virtual CFO Services:</strong> Ongoing financial strategy, cost control initiatives, and compliance monitoring.</li>
+                            <li><strong>Budgeting & Forecasting:</strong> Building robust financial models for strategic planning and variance analysis.</li>
+                            <li><strong>Project & CMA Reports:</strong> Detailed preparation of reports for bank loans, investors, and government subsidies.</li>
+                        </ul>`
+                }
+            };
+
+            const openModal = (serviceKey) => {
+                const service = serviceDetails[serviceKey];
+                if (service) {
+                    modalTitle.textContent = service.title;
+                    modalBody.innerHTML = service.details;
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    setTimeout(() => modalContent.classList.remove('scale-95'), 10);
+                }
+            };
+
+            const closeModal = () => {
+                modalContent.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    if (faqModal.classList.contains('hidden')) {
+                        document.body.style.overflow = 'auto';
+                    }
+                }, 300);
+            };
+
+            learnMoreBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const serviceKey = e.target.dataset.service;
+                    openModal(serviceKey);
+                });
+            });
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            modalCta.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && (!modal.classList.contains('hidden') || !faqModal.classList.contains('hidden'))) {
+                    closeModal();
+                    closeFaqModal();
+                }
+            });
+
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+
+</body>
+</html>
